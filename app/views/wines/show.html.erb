@@ -1,9 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @wine.name %>
-</p>
+<% if current_user && @user.user == "admin" %>
+  <p>
+    <strong>Name:</strong>
+    <%= @wine.name %>
+  </p>
+<% else %>
+  <h1>You do not have permission to access this page</h1>
+  <%= link_to 'Back', root_path %>
+<% end %>
 
-<%= link_to 'Edit', edit_wine_path(@wine) %> |
-<%= link_to 'Back', wines_path %>

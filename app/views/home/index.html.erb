@@ -1,4 +1,5 @@
 <% if current_user %>
+    <p>Hola <%= @user.email %></p>
     <p id="notice"><%= notice %></p>
 
     <h1>Wines</h1>
@@ -23,18 +24,20 @@
 
             <%end%>
             </td>
-
-            <td><%= link_to 'Show', wine %></td>
-            <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
-            <td><%= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% if @user.user=="admin" %>
+                <td><%= link_to 'Show', wine %></td>
+                <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
+                <td><%= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>        
         </tr>
         <% end %>
     </tbody>
     </table>
 
     <br>
-
-    <%= link_to 'New Wine', new_wine_path %>
+    <% if @user.user=="admin" %>
+        <%= link_to 'New Wine', new_wine_path %>
+    <% end %>
 
 <% else %>
     <h2>Par ver lista de vinos debe estar logeado</h2>

@@ -4,6 +4,7 @@ class WinesController < ApplicationController
   # GET /wines or /wines.json
   def index
     @wines = Wine.all
+    @user = current_user
   end
 
   # GET /wines/1 or /wines/1.json
@@ -14,6 +15,7 @@ class WinesController < ApplicationController
   def new
     @wine = Wine.new
     @wine.wine_strains.build
+    @user = current_user
   end
 
   # GET /wines/1/edit
