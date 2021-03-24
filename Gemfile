@@ -55,3 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #Gem Cocoon 22-03-2021 
 gem 'cocoon'
+
+gem 'devise'
