@@ -22,6 +22,7 @@ class WinesController < ApplicationController
   # GET /wines/1/edit
   def edit
     @user = current_user
+    @oenologist = Oenologist.all
   end
 
   # POST /wines or /wines.json
@@ -69,6 +70,6 @@ class WinesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def wine_params
-      params.require(:wine).permit(:name, wine_strains_attributes: [:percentage, :_destroy, :id, :strain_id] )
+      params.require(:wine).permit(:name, :qualification, wine_strains_attributes: [:percentage, :_destroy, :id, :strain_id] )
     end
 end

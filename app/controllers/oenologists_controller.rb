@@ -13,6 +13,9 @@ class OenologistsController < ApplicationController
   # GET /oenologists/new
   def new
     @oenologist = Oenologist.new
+    @oenologist.oenologist_magazines.build
+    @oenologist.oenologist_jobs.build
+    
   end
 
   # GET /oenologists/1/edit
@@ -64,6 +67,7 @@ class OenologistsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def oenologist_params
-      params.require(:oenologist).permit(:name, :age, :nationality)
+      params.require(:oenologist).permit(:name, :age, :nationality, oenologist_magazines_attributes: [:_destroy, :id, :magazine_id], oenologist_jobs_attributes: [:_destroy, :id, :job_id])
+      
     end
 end

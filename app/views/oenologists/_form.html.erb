@@ -26,6 +26,17 @@
     <%= form.text_field :nationality %>
   </div>
 
+  <h2>Magazine and Job</h2>
+
+
+  <div id="wine_strains" class=""form-group">
+
+    <div class="links form-inline">
+      <%= link_to_add_association 'Add Magazine', form, :oenologist_magazines  %>
+    </div>
+  </div>
+
+  
   <div class="actions">
     <%= form.submit %>
   </div>
