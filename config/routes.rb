@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :jobs
+  resources :magazines
+  resources :oenologists
   get 'home/index'
   devise_for :users
   resources :strains

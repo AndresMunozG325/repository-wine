@@ -9,6 +9,7 @@ class WinesController < ApplicationController
 
   # GET /wines/1 or /wines/1.json
   def show
+    @user = current_user
   end
 
   # GET /wines/new
@@ -20,6 +21,7 @@ class WinesController < ApplicationController
 
   # GET /wines/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /wines or /wines.json
